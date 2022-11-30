@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <title>Hotel Booking Website</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+  <link rel="stylesheet" href="css/style.css">
+
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
+
+
+</head>
+
+<body>
+    <section class="head">
+        <div class="container flex1">
+          <div class="scoial">
+            <i class="fab fa-facebook-f"></i>
+            <i class="fab fa-twitter"></i>
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-youtube"></i>
+          </div>
+          <div class="logo">
+           <img src="image/logo.png" alt="">  
+          </div>
+          <div class="address">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>400099 IA Project Rd, Vile Parle, Andheri, MAHARASHTRA</span>
+          </div>
+        </div>
+      </section>
+    
+    
+      <header class="header">
+        <div class="container">
+          <nav class="navbar flex1">
+            <div class="sticky_logo logo">
+              <img src="image/logo.png" alt="">  
+            </div>
+    
+            <ul class="nav-menu">
+              <li> <a href="index.html">Home</a> </li>
+              <li> <a href="index.html#about">about</a> </li>
+              <li> <a href="Amenities.html">Amenities</a> </li>
+              <li> <a href="#services">Rooms</a> </li> 
+            </ul>
+            <div class="hamburger">
+              <span class="bar"></span>
+              <span class="bar"></span>
+              <span class="bar"></span>
+            </div>
+    
+            <div class="head_contact">
+              <i class="fas fa-phone-volume"></i>
+              <span>+91 920 000 0001</span>
+            </div>
+          </nav>
+        </div>
+      </header>
+      <script>
+        const hamburger = document.querySelector(".hamburger");
+        const navMenu = document.querySelector(".nav-menu");
+    
+        hamburger.addEventListener("click", mobliemmenu);
+    
+        function mobliemmenu() {
+          hamburger.classList.toggle("active");
+          navMenu.classList.toggle("active");
+        }
+    
+        window.addEventListener("scroll", function() {
+          var header = document.querySelector("header");
+          header.classList.toggle("sticky", window.scrollY > 0)
+        })
+      </script>
+
+<section class="offer mtop" id="services">
+    <div class="container">
+      <div class="heading">
+        <h5>EXCLUSIVE OFFERS </h5>
+        <h3>You can get an exclusive offer </h3>
+      </div>
+
+      <div class="content grid2 mtop">
+        <div class="box flex">
+          <div class="left">
+            <img src="image/oo1.jpg" alt="">
+          </div>
+          <div class="right">
+            <h4>Deluxe Room</h4>
+            <div class="rate flex">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <p> Embrace the elegance of our Mumbai hotel accommodations.</p>
+            <h5>From Rs.6999/night</h5>
+            <button class="flex1" onclick="document.location='Book.html' ">
+              <span>Check Availability</span>
+              <i class="fas fa-arrow-circle-right"></i>
+            </button>
+          </div>
+        </div>
+        <div class="box flex">
+          <div class="left">
+            <img src="image/oo2.jpg" alt="">
+          </div>
+          <div class="right">
+            <h4>Super Deluxe Room</h4>
+            <div class="rate flex">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <p> Embrace the elegance of our Mumbai hotel accommodations.</p>
+            <h5>From Rs.9999/night</h5>
+            <button class="flex1">
+              <span>Check Availability</span>
+              <i class="fas fa-arrow-circle-right"></i>
+            </button>
+          </div>
+        </div>
+        <div class="box flex">
+          <div class="left">
+            <img src="image/oo3.jpg" alt="">
+          </div>
+          <div class="right">
+            <h4>Presidential Room</h4>
+            <div class="rate flex">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <p> Embrace the elegance of our Mumbai hotel accommodations.</p>
+            <h5>From Rs.16999/night</h5>
+            <button class="flex1">
+              <span>Check Availability</span>
+              <i class="fas fa-arrow-circle-right"></i>
+            </button>
+          </div>
+        </div>
+        <div class="box flex">
+          <div class="left">
+            <img src="image/oo4.jpg" alt="">
+          </div>
+          <div class="right">
+            <h4>Standard Room</h4>
+            <div class="rate flex">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <p> Embrace the elegance of our Mumbai hotel accommodations.</p>
+            <h5>From Rs.4999/night</h5>
+            <button class="flex1">
+              <span>Check Availability</span>
+              <i class="fas fa-arrow-circle-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <footer>
+    <div class="container top">
+      <div class="subscribe" id="contact">
+        <h2>JW Group of Hotels</h2>
+        <p> Celebrate and succeed in flexible event spaces, masterfully designed for flawless meetings, conferences and social affairs in Mumbai.</p>
+      </div>
+
+      <div class="content grid  top">
+        <div class="box">
+          <div class="logo">
+            <img src="image/logo.png" alt="">
+          </div>
+          <p>Thrill your palate with diverse fine dining at our distinctive restaurants and bars. Energize in our well-equipped fitness center and refresh in the sparkling waters of our outdoor infinity and salt-water pools. </p>
+          <div class="social flex">
+            <i class="fab fa-facebook-f"></i>
+            <i class="fab fa-twitter"></i>
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-youtube"></i>
+          </div>
+        </div>
+
+        <div class="box">
+          <h2>Services</h2>
+          <ul>
+            <li><i class="fas fa-angle-double-right"></i>Restaurant</li>
+            <li><i class="fas fa-angle-double-right"></i>Swimming Pool</li>
+            <li><i class="fas fa-angle-double-right"></i>Wellness & Spa</li>
+            <li><i class="fas fa-angle-double-right"></i>Conference Room</li>
+            <li><i class="fas fa-angle-double-right"></i>Events</li>
+            <li><i class="fas fa-angle-double-right"></i>Adult Room</li>
+          </ul>
+        </div>
+
+        <div class="box">
+          <h2>Services</h2>
+          <div class="icon flex">
+            <div class="i">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div class="text">
+              <h3>Address</h3>
+              <p>400099 IA Project Rd, Vile Parle, Andheri, MAHARASHTRA</p>
+            </div>
+          </div>
+          <div class="icon flex">
+            <div class="i">
+              <i class="fas fa-phone"></i>
+            </div>
+            <div class="text">
+              <h3>Phone</h3>
+              <p>+91 920 000 0001</p>
+            </div>
+          </div>
+          <div class="icon flex">
+            <div class="i">
+              <i class="far fa-envelope"></i>
+            </div>
+            <div class="text">
+              <h3>Email</h3>
+              <p>hello@ecorik.com</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  
+</body>
+
+</html>
