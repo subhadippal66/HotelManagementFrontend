@@ -5,188 +5,344 @@
   <title>Hotel Booking Website</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-  <link rel="stylesheet" href="css/style.css">
-
+  <!-- CSS only -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
   <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
-
+  <link rel="stylesheet" href="./css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
+  <meta name="google-signin-client_id" content="802989747573-7g434svbnrl7ljqo48u1e9b551c5dj7h.apps.googleusercontent.com">
 
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
 
 </head>
 
 <body>
 
-    <section class="head">
-        <div class="container flex1">
-          <div class="scoial">
-            <i class="fab fa-facebook-f"></i>
-            <i class="fab fa-twitter"></i>
-            <i class="fab fa-instagram"></i>
-            <i class="fab fa-youtube"></i>
-          </div>
-          <div class="logo">
-           <img src="image/logo.png" alt="">  
-          </div>
-          <div class="address">
-            <i class="fas fa-map-marker-alt"></i>
-            <span>400099 IA Project Rd, Vile Parle, Andheri, MAHARASHTRA</span>
-          </div>
+  <header class="header sticky">
+    <div class="container">
+      <nav class="navbar flex1">
+        <div class="sticky_logo logo">
+          <img src="" alt="">  
         </div>
-      </section>
-    
-    
-      <header class="header">
-        <div class="container">
-          <nav class="navbar flex1">
-            <div class="sticky_logo logo">
-              <img src="image/logo.png" alt="">  
+
+        <ul class="nav-menu">
+          <li> <a href="index.html">Home</a> </li>
+          <li> <a href="index.html#about">about</a> </li>
+          <li> <a href="Amenities.html">Amenities</a> </li>
+          <li> <a href="Rooms.html">Rooms</a> </li> 
+          <li> <a href="MyBooking.html" >MyBooking</a> </li> 
+          
+          <li class="loginui"> 
+            <div id="g_id_onload"
+                data-client_id="802989747573-7g434svbnrl7ljqo48u1e9b551c5dj7h.apps.googleusercontent.com"
+                data-context="signin"
+                data-ux_mode="popup"
+                data-callback="handleCredentialResponse"
+                data-auto_prompt="false">
             </div>
-    
-            <ul class="nav-menu">
-              <li> <a href="index.html">Home</a> </li>
-              <li> <a href="index.html#about">about</a> </li>
-              <li> <a href="Amenities.html">Amenities</a> </li>
-              <li> <a href="Rooms.html">Rooms</a> </li> 
-            </ul>
-            <div class="hamburger">
-              <span class="bar"></span>
-              <span class="bar"></span>
-              <span class="bar"></span>
+
+            <div class="g_id_signin"
+                data-type="standard"
+                data-shape="pill"
+                data-theme="filled_blue"
+                data-text="signin_with"
+                data-size="medium"
+                data-logo_alignment="left">
             </div>
+          </li>
+
+          <li class="logoutui">
+                <a href=""><div id="signout_button" class="g_id_signout" style="color: red;">Sign Out</div></a>
+          </li>
+
+        </ul>
     
-            <div class="head_contact">
-              <i class="fas fa-phone-volume"></i>
-              <span>+91 920 000 0001</span>
-            </div>
-          </nav>
+
+        <div class="head_contact">
         </div>
-      </header>
-      <script>
-        const hamburger = document.querySelector(".hamburger");
-        const navMenu = document.querySelector(".nav-menu");
-    
-        hamburger.addEventListener("click", mobliemmenu);
-    
-        function mobliemmenu() {
-          hamburger.classList.toggle("active");
-          navMenu.classList.toggle("active");
-        }
-    
-        window.addEventListener("scroll", function() {
-          var header = document.querySelector("header");
-          header.classList.toggle("sticky", window.scrollY > 0)
-        })
-      </script>
+      </nav>
+    </div>
+  </header>
 
 
-    <section class="Booking">
-      <form action="">
-        <h3>Book</h3>
-        <div class="flex">
-          <div class="box">
-            <p>Check-in <span>*</span></p>
-            <input type="date" name="check-in" class="box" required>
-          </div>
-          <div class="box">
-            <p>Check-out <span>*</span></p>
-            <input type="date" name="check-out" class="box" required>
-          </div>
-          <div class="box">
-            <p>Adults <span>*</span></p>
-            <select name="Adults" class="input" required>
-              <option value="1">1 Adult</option>
-              <option value="2">2 Adult</option>
-            </select>
-          </div>
-          <div class="box">
-            <p>Children <span>*</span></p>
-            <select name="Children" class="input" required>
-              <option value="1">1 Child</option>
-              <option value="2">2 Child</option>
-            </select>
-          </div>
-          <div class="box">
-            <p>Rooms <span>*</span></p>
-            <select name="Children" class="input" required>
-              <option value="1">1 room</option>
-              <option value="2">2 room</option>
-            </select>
+
+
+    <section class="h-100 bg-dark pt-4 mt-2">
+      <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col">
+            <div class="card card-registration my-4">
+              <div class="row g-0">
+                <div class="col-xl-6 d-none d-xl-block">
+                  <img src="image/Booking.jpg"
+                    alt="Sample photo" class="img-fluid"
+                    style="border-top-left-radius: .25rem; border-bottom-left-radius: .25rem;" />
+                </div>
+                <div class="col-xl-6">
+                  <div class="card-body p-md-5 text-black">
+                    <h3 class="mb-5 text-uppercase">Book</h3>
+    
+                    <div class="row">
+                      <div class="col">
+                        <div class="form-outline">
+                          <input type="text" id="name1" class="form-control form-control-lg" placeholder="John Doe"/>
+                          <label class="form-label" for="form3Example1m">Name</label>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col">
+                        <div class="form-outline">
+                          <input type="email" id="email1" class="form-control form-control-lg" placeholder="John@123.com"/>
+                          <label class="form-label" for="form3Example1m">Email</label>
+                        </div>
+                      </div>
+                    </div>
+    
+                    <div class="row">
+                      <div class="col-md-6 mb-4">
+                        <div class="form-outline">
+                          <input type="tel" id="mobile1" class="form-control form-control-lg" max="10" placeholder="9826888888" />
+                          <label class="form-label" for="form3Example1m1">Mobile Number</label>
+                        </div>
+                      </div>
+                      <div class="col-md-6 mb-4">
+                        <select class="form-select form-select-lg" id="location1">
+                          <option value="Mumbai">Mumbai</option>
+                          <option value="Delhi">Delhi</option>
+                          <option value="Bangalore">Bangalore</option>
+                          <option value="Kolkata">Kolkata</option>
+                          <option value="Indore">Indore</option>
+                          <option value="Ranchi">Ranchi</option>
+                          <option value="Hyderabad">Hyderabad</option>
+                          <option value="Jaipur">Jaipur</option>
+                          <option value="Amritsar">Amritsar</option>
+                        </select>
+                        <label class="form-label" for="form3Example1m">Destination</label>
+                      </div>
+                    </div>
+
+                      <div class="row">
+                        <div class="col-md-6 mb-4">
+                          <input type="number" id="adults1" class="form-control form-control-lg" placeholder="2" />
+                          <label class="form-label" for="form3Example1m">Adults</label>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                          <input type="number" id="children1" class="form-control form-control-lg" placeholder="0" />
+                          <label class="form-label" for="form3Example1m">Children</label>
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col-md-6 mb-4">
+                          <select class="form-select form-select-lg" id="type1">
+                            <option value="1">Standard</option>
+                            <option value="2">Deluxe</option>
+                            <option value="3">Super Deluxe</option>
+                            <option value="4">Presidential</option>
+                          </select>
+                          <label class="form-label" for="form3Example1m">Room Type</label>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                          <select class="form-select form-select-lg" id="no1">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                          </select>
+                          <label class="form-label" for="form3Example1m">No. of Rooms</label>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                          <select class="form-select form-select-lg" id="payment1">
+                            <option value=1>Cash on Check-in</option>
+                            <option value=2>UPI</option>
+                            <option value=3>Debit Card</option>
+                            <option value=4>Credit Card/EMI</option>
+                          </select>
+                          <label class="form-label" for="form3Example1m">Payment Mode</label>
+                        </div>
+                      </div>
+                      
+                        <div class="row">
+                          <div class="col-md-6 mb-4">
+                            <input type="date" id="checkin1" class="form-control form-control-lg" />
+                            <label class="form-label" for="form3Example1m">Check-in</label>
+                          </div>
+                          <div class="col-md-6 mb-4">
+                            <input type="date" id="checkout1" class="form-control form-control-lg" />
+                            <label class="form-label" for="form3Example1m">Check-out</label>
+                          </div>
+            
+                        <div class="row-cols-lg-2">
+                          <textarea name="" id="comment1" cols="30" rows="4" class="form-control"></textarea>
+                          <label class="form-label" for="form3Example1m">Comments</label>
+                      </div>
+    
+                    
+    
+                    <div class="d-flex justify-content-end pt-3">
+                      <button type="button" class="btn btn-light btn-lg">Reset all</button>
+                      <button type="button" class="btn btn-warning btn-lg ms-2" onclick="createNewBooking()">Submit form</button>
+                    </div>
+    
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        <input type="submit" value="Book">
-      </form>
+      </div>
     </section>
 
 
-  <footer>
-    <div class="container top">
-      <div class="subscribe" id="contact">
-        <h2>JW Group of Hotels</h2>
-        <p> Celebrate and succeed in flexible event spaces, masterfully designed for flawless meetings, conferences and social affairs in Mumbai.</p>
-      </div>
-
-      <div class="content grid  top">
-        <div class="box">
-          <div class="logo">
-            <img src="image/logo.png" alt="">
-          </div>
-          <p>Thrill your palate with diverse fine dining at our distinctive restaurants and bars. Energize in our well-equipped fitness center and refresh in the sparkling waters of our outdoor infinity and salt-water pools. </p>
-          <div class="social flex">
-            <i class="fab fa-facebook-f"></i>
-            <i class="fab fa-twitter"></i>
-            <i class="fab fa-instagram"></i>
-            <i class="fab fa-youtube"></i>
-          </div>
-        </div>
-
-        <div class="box">
-          <h2>Services</h2>
-          <ul>
-            <li><i class="fas fa-angle-double-right"></i>Restaurant</li>
-            <li><i class="fas fa-angle-double-right"></i>Swimming Pool</li>
-            <li><i class="fas fa-angle-double-right"></i>Wellness & Spa</li>
-            <li><i class="fas fa-angle-double-right"></i>Conference Room</li>
-            <li><i class="fas fa-angle-double-right"></i>Events</li>
-            <li><i class="fas fa-angle-double-right"></i>Adult Room</li>
-          </ul>
-        </div>
-
-        <div class="box">
-          <h2>Services</h2>
-          <div class="icon flex">
-            <div class="i">
-              <i class="fas fa-map-marker-alt"></i>
-            </div>
-            <div class="text">
-              <h3>Address</h3>
-              <p>400099 IA Project Rd, Vile Parle, Andheri, MAHARASHTRA</p>
+    <footer>
+      <div class="container ">
+        <div class="content grid ">
+          <div class="box">
+            <p>
+              The unrivalled guardian of grandeur, Taj conjures a panoply of superlatives. With an art of hospitality that has been perfected over a century, Taj delivers unmatched experiences and lasting memories for guests around the world.
+            </p>
+            <div class="social flex">
+              <i class="fab fa-facebook-f"></i>
+              <i class="fab fa-twitter"></i>
+              <i class="fab fa-instagram"></i>
+              <i class="fab fa-youtube"></i>
             </div>
           </div>
-          <div class="icon flex">
-            <div class="i">
-              <i class="fas fa-phone"></i>
-            </div>
-            <div class="text">
-              <h3>Phone</h3>
-              <p>+91 920 000 0001</p>
-            </div>
-          </div>
-          <div class="icon flex">
-            <div class="i">
-              <i class="far fa-envelope"></i>
-            </div>
-            <div class="text">
-              <h3>Email</h3>
-              <p>hello@ecorik.com</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
-
   
-</body>
+          <div class="box">
+            <h2>Services</h2>
+            <ul>
+              <li><i class="fas fa-angle-double-right"></i>Restaurant</li>
+              <li><i class="fas fa-angle-double-right"></i>Swimming Pool</li>
+              <li><i class="fas fa-angle-double-right"></i>Wellness & Spa</li>
+              <li><i class="fas fa-angle-double-right"></i>Conference Room</li>
+              <li><i class="fas fa-angle-double-right"></i>Events</li>
+              <li><i class="fas fa-angle-double-right"></i>Adult Room</li>
+            </ul>
+          </div>
+  
+          <div class="box">
+            <h2>Services</h2>
+            <div class="icon flex">
+              <div class="i">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div class="text">
+                <h3>Address</h3>
+                <p>Apollo Bandar, Colaba, Mumbai, Maharashtra 400001</p>
+              </div>
+            </div>
+            <div class="icon flex">
+              <div class="i">
+                <i class="fas fa-phone"></i>
+              </div>
+              <div class="text">
+                <h3>Phone</h3>
+                <p>022 6665 3366</p>
+              </div>
+            </div>
+            <div class="icon flex">
+              <div class="i">
+                <i class="far fa-envelope"></i>
+              </div>
+              <div class="text">
+                <h3>Email</h3>
+                <p>hello@taj.com</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
 
-</html>
+    <script>
+      if(window.localStorage.getItem("Email")==null){
+        window.location.href = "http://localhost:5500/HotelBooking/MyBooking.html";
+      }
+    </script>
+
+  <script src="https://unpkg.com/jwt-decode/build/jwt-decode.js"></script>
+
+  <script src="./HandleGoogleLogin.js"></script>
+  
+
+  <script>
+    $('#email1').val(window.localStorage.getItem("Email"))
+
+    
+
+    function createNewBooking(){
+
+      let email = $('#email1').val()
+      let name = $('#name1').val()
+      let mobile = $('#mobile1').val()
+      let location1 = $('#location1').val()
+      let adults = $('#adults1').val()
+      let children = $('#children1').val()
+      let type = $('#type1').val()
+      let no = $('#no1').val()
+      let checkin = $('#checkin1').val()
+      let checkout = $('#checkout1').val()
+      let payment1 = $('#payment1').val()
+
+      var raw = JSON.stringify({
+        "userHash": 122,
+        "userName": name,
+        "userMobileNo": mobile,
+        "userEmail": email,
+        "checkin": checkin,
+        "checkout": checkout,
+        "noOfRooms": parseInt(no),
+        "roomType": parseInt(type),
+        "adults": parseInt(adults),
+        "children": parseInt(children),
+        "location": location1,
+        "paymentMode": parseInt(payment1),
+        "status": 0,
+        "status1": 0
+      });
+
+      //console.log(raw)
+
+      let a = (email.length>0&&name.length>0&&mobile.length>0&&location1.length>0&&adults.length>0&&children.length>0&&type.length>0&&no.length>0&&checkin.length>0&&checkout.length>0&&payment1.length>0)
+      console.log(a)
+      if(!a){
+        alert("Missing Field")
+        
+        return;
+        
+      }
+
+      var myHeaders = new Headers();
+      myHeaders.append("Content-Type", "application/json");
+
+      
+
+
+      var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: raw,
+        redirect: 'follow'
+      };
+
+      fetch("http://127.0.0.1:8080/createNewBooking", requestOptions)
+        .then(response => {
+          console.log( response.text())
+          if(response){
+            alert("success")
+            window.location.href = "http://localhost:5500/HotelBooking/MyBooking.html";
+            
+          }
+        })
+        .then(result => console.log(result))
+        .catch(error => console.log('error', error));
+    }
+
+
+  </script>
+
+</body>

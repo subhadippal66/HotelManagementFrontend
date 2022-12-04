@@ -11,103 +11,76 @@
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
+  
+  
+  <meta name="google-signin-client_id" content="802989747573-7g434svbnrl7ljqo48u1e9b551c5dj7h.apps.googleusercontent.com">
+
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
 
 
 </head>
 
 <body>
-  <section class="head">
-    <div class="container flex1">
-      <div class="scoial">
-        <i class="fab fa-facebook-f"></i>
-        <i class="fab fa-twitter"></i>
-        <i class="fab fa-instagram"></i>
-        <i class="fab fa-youtube"></i>
-      </div>
-      <div class="logo">
-       <img src="image/logo.png" alt="">  
-      </div>
-      <div class="address">
-        <i class="fas fa-map-marker-alt"></i>
-        <span>400099 IA Project Rd, Vile Parle, Andheri, MAHARASHTRA</span>
-      </div>
-    </div>
-  </section>
+  
 
 
-  <header class="header">
+  <header class="header sticky">
     <div class="container">
       <nav class="navbar flex1">
         <div class="sticky_logo logo">
-          <img src="image/logo.png" alt="">  
+          <img src="" alt="">  
         </div>
 
         <ul class="nav-menu">
-          <li> <a href="#home">Home</a> </li>
-          <li> <a href="#about">about</a> </li>
+          <li> <a href="index.html">Home</a> </li>
+          <li> <a href="index.html#about">about</a> </li>
           <li> <a href="Amenities.html">Amenities</a> </li>
-          <li> <a href="Rooms.html">Rooms</a> </li>
-          <li> <a href="Book.html"></a> </li> 
+          <li> <a href="Rooms.html">Rooms</a> </li> 
+          <li> <a href="MyBooking.html" >MyBooking</a> </li> 
+          
+          <li class="loginui"> 
+            <div id="g_id_onload"
+                data-client_id="802989747573-7g434svbnrl7ljqo48u1e9b551c5dj7h.apps.googleusercontent.com"
+                data-context="signin"
+                data-ux_mode="popup"
+                data-callback="handleCredentialResponse"
+                data-auto_prompt="false">
+            </div>
+
+            <div class="g_id_signin"
+                data-type="standard"
+                data-shape="pill"
+                data-theme="filled_blue"
+                data-text="signin_with"
+                data-size="medium"
+                data-logo_alignment="left">
+            </div>
+          </li>
+
+          <li class="logoutui">
+                <a href=""><div id="signout_button" class="g_id_signout" style="color: red;">Sign Out</div></a>
+          </li>
+
         </ul>
-        <div class="hamburger">
-          <span class="bar"></span>
-          <span class="bar"></span>
-          <span class="bar"></span>
-        </div>
+    
 
         <div class="head_contact">
-          <i class="fas fa-phone-volume"></i>
-          <span>+91 920 000 0001</span>
         </div>
       </nav>
     </div>
   </header>
-  <script>
-    const hamburger = document.querySelector(".hamburger");
-    const navMenu = document.querySelector(".nav-menu");
-
-    hamburger.addEventListener("click", mobliemmenu);
-
-    function mobliemmenu() {
-      hamburger.classList.toggle("active");
-      navMenu.classList.toggle("active");
-    }
-
-    window.addEventListener("scroll", function() {
-      var header = document.querySelector("header");
-      header.classList.toggle("sticky", window.scrollY > 0)
-    })
-  </script>
+  
 
 
   <section class="home" id="home">
     <div class="container">
-      <h1>Nourish your soul</h1>
-      <p>Be Present in Mind, Nourished in Body and Revitalized in Spirit.</p>
-
-      <div class="content grid">
-        <div class="box">
-          <span>ARRIVAL DATE </span> <br>
-          <input type="date" placeholder="29/20/2021">
-        </div>
-        <div class="box">
-          <span>DEPARTURE DATE </span> <br>
-          <input type="date" placeholder="29/20/2021">
-        </div>
-        <div class="box">
-          <span>ADULTS</span> <br>
-          <input type="number" placeholder="01">
-        </div>
-        <div class="box">
-          <span>CHILDREN </span> <br>
-          <input type="number" placeholder="01">
-        </div>
-        <div class="box">
-          <button class="flex1">
-            <span>Check Availability</span>
+      <h1>The Taj</h1>
+      <div class="content">
+        <div class="" >
+          <button class="flex1" style="margin: auto; cursor: pointer;" onclick= "document.location='Book.html'">
+            <span>Book Now</span>
             <i class="fas fa-arrow-circle-right"></i>
-          </button>
-        </div>
+          </button></div>
       </div>
     </div>
   </section>
@@ -270,18 +243,12 @@
   </script>
 
   <footer>
-    <div class="container top">
-      <div class="subscribe" id="contact">
-        <h2>JW Group of Hotels</h2>
-        <p> Celebrate and succeed in flexible event spaces, masterfully designed for flawless meetings, conferences and social affairs in Mumbai.</p>
-      </div>
-
-      <div class="content grid  top">
+    <div class="container ">
+      <div class="content grid ">
         <div class="box">
-          <div class="logo">
-            <img src="image/logo.png" alt="">
-          </div>
-          <p>Thrill your palate with diverse fine dining at our distinctive restaurants and bars. Energize in our well-equipped fitness center and refresh in the sparkling waters of our outdoor infinity and salt-water pools. </p>
+          <p>
+            The unrivalled guardian of grandeur, Taj conjures a panoply of superlatives. With an art of hospitality that has been perfected over a century, Taj delivers unmatched experiences and lasting memories for guests around the world.
+          </p>
           <div class="social flex">
             <i class="fab fa-facebook-f"></i>
             <i class="fab fa-twitter"></i>
@@ -310,7 +277,7 @@
             </div>
             <div class="text">
               <h3>Address</h3>
-              <p>400099 IA Project Rd, Vile Parle, Andheri, MAHARASHTRA</p>
+              <p>Apollo Bandar, Colaba, Mumbai, Maharashtra 400001</p>
             </div>
           </div>
           <div class="icon flex">
@@ -319,7 +286,7 @@
             </div>
             <div class="text">
               <h3>Phone</h3>
-              <p>+91 920 000 0001</p>
+              <p>022 6665 3366</p>
             </div>
           </div>
           <div class="icon flex">
@@ -328,14 +295,17 @@
             </div>
             <div class="text">
               <h3>Email</h3>
-              <p>hello@ecorik.com</p>
+              <p>hello@taj.com</p>
             </div>
           </div>
         </div>
       </div>
     </div>
   </footer>
+
+
+  <script src="https://unpkg.com/jwt-decode/build/jwt-decode.js"></script>
+
+  <script src="./HandleGoogleLogin.js"></script>
 </body>
 
-
-</html>
