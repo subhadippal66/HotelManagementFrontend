@@ -86,7 +86,7 @@
                     <div class="row">
                       <div class="col">
                         <div class="form-outline">
-                          <input type="text" id="name1" class="form-control form-control-lg" placeholder="John Doe"/>
+                          <input type="text" id="name1" disabled class="form-control form-control-lg" placeholder="John Doe"/>
                           <label class="form-label" for="form3Example1m">Name</label>
                         </div>
                       </div>
@@ -95,7 +95,7 @@
                     <div class="row">
                       <div class="col">
                         <div class="form-outline">
-                          <input type="email" id="email1" class="form-control form-control-lg" placeholder="John@123.com"/>
+                          <input type="email" id="email1" disabled class="form-control form-control-lg" placeholder="John@123.com"/>
                           <label class="form-label" for="form3Example1m">Email</label>
                         </div>
                       </div>
@@ -138,10 +138,10 @@
                       <div class="row">
                         <div class="col-md-6 mb-4">
                           <select class="form-select form-select-lg" id="type1">
-                            <option value="1">Standard</option>
-                            <option value="2">Deluxe</option>
-                            <option value="3">Super Deluxe</option>
-                            <option value="4">Presidential</option>
+                            <option value="1" price='4999' >Standard</option>
+                            <option value="2" price='6999'>Deluxe</option>
+                            <option value="3" price='9999'>Super Deluxe</option>
+                            <option value="4" price='16999'>Presidential</option>
                           </select>
                           <label class="form-label" for="form3Example1m">Room Type</label>
                         </div>
@@ -183,7 +183,8 @@
                     
     
                     <div class="d-flex justify-content-end pt-3">
-                      <button type="button" class="btn btn-light btn-lg">Reset all</button>
+                      <div id="Output" class="btn btn-light btn-lg"></div>
+                      <button type="button" id="Subm" class="btn btn-light btn-lg">Check Price</button>
                       <button type="button" class="btn btn-warning btn-lg ms-2" onclick="createNewBooking()">Submit form</button>
                     </div>
     
@@ -260,7 +261,7 @@
 
     <script>
       if(window.localStorage.getItem("Email")==null){
-        window.location.href = "http://localhost:5500/HotelBooking/MyBooking.html";
+        window.location.href = "http://localhost:5500/MyBooking.html";
       }
     </script>
 
@@ -271,8 +272,116 @@
 
   <script>
     $('#email1').val(window.localStorage.getItem("Email"))
+    $('#name1').val(window.localStorage.getItem("Name"))
 
-    
+    total1 = 0;
+
+    priceCalculator();
+    function priceCalculator(){
+      let Sub = document.getElementById("Subm");
+      let out = document.getElementById("Output");
+
+      Sub.addEventListener("click", ()=> {
+          let dateA = new Date(document.getElementById("checkin1").value);
+          let dateB = new Date(document.getElementById("checkout1").value);
+
+          console.log(dateA)
+          console.log(dateB)
+
+          let price = {
+            '1':'4999',
+            '2':'6999',
+            '3':'9999',
+            '4':'16999',
+          }
+
+          let rooms = document.getElementById('no1').value;
+          let type = price[document.getElementById('type1').value];
+          
+
+          console.log(rooms)
+          console.log(type)
+
+
+          if(dateA.getTime() && dateB.getTime())
+          {
+              let timeDifference = dateB.getTime() - dateA.getTime();
+              let dayDifference = timeDifference/(1000*3600*24);
+              console.log(dayDifference);
+
+              let total = rooms * type * dayDifference;
+              out.innerHTML = `Rs.${total}`;
+              console.log("total :", total);
+              total1 = total;
+          }
+      });
+    }
+
+    let checkin = $('#checkin1');
+    checkin.on('change',()=>{
+      $('#checkout1').val('');
+      datePicker();
+        
+    })
+
+    datePicker()
+    function datePicker(){
+      
+      
+      var dtToday = new Date();
+      
+      cToday = new Date(checkin.val());
+      
+      if(!dtToday){
+      }
+
+      let cdate = new Date()
+
+      var month = dtToday.getMonth() + 1;
+      var day = cToday.getDate() + 5;
+      var tday = cToday.getDate();
+      var year = dtToday.getFullYear();
+      
+      if(month < 10)
+      {
+        month = '0' + month;
+      }
+      if(day < 10)
+      {
+        day = '0' + day;
+      }
+      if(tday < 10)
+      {
+          tday = '0' + tday;
+      }
+      
+      var maxDate = year + '-' + month + '-' + day;
+      var minDate = year + '-' + month + '-' + tday;
+      var minDate1 = year + '-' + month + '-' + dtToday.getDate();
+      
+
+
+      var today = new Date();
+      var dd = today.getDate();
+      var mm = today.getMonth() + 1; //January is 0!
+      var yyyy = today.getFullYear();
+      
+      if (dd < 10) {
+         dd = '0' + dd;
+      }
+      
+      if (mm < 10) {
+         mm = '0' + mm;
+      } 
+          
+      today = yyyy + '-' + mm + '-' + dd;
+      document.getElementById("checkin1").setAttribute("min", today);
+
+      //document.getElementById("checkin1").setAttribute('min',date);
+      document.getElementById("checkout1").setAttribute('min',minDate);
+      document.getElementById("checkout1").setAttribute('max',maxDate)
+
+    }
 
     function createNewBooking(){
 
@@ -288,6 +397,28 @@
       let checkout = $('#checkout1').val()
       let payment1 = $('#payment1').val()
 
+      
+
+      //console.log(raw)
+
+      let a = (email.length>0&&name.length>0&&mobile.length>0&&location1.length>0&&adults.length>0&&children.length>0&&type.length>0&&no.length>0&&checkin.length>0&&checkout.length>0&&payment1.length>0)
+      console.log(a)
+      if(!a){
+        alert("Missing Field")
+        
+        return;
+        
+      }
+      
+
+      $('#Subm').click();
+      let sure = confirm(`Price is ${total1}`)
+      if(!sure){
+        return;
+      }
+
+
+
       var raw = JSON.stringify({
         "userHash": 122,
         "userName": name,
@@ -302,19 +433,8 @@
         "location": location1,
         "paymentMode": parseInt(payment1),
         "status": 0,
-        "status1": 0
+        "status1": total1
       });
-
-      //console.log(raw)
-
-      let a = (email.length>0&&name.length>0&&mobile.length>0&&location1.length>0&&adults.length>0&&children.length>0&&type.length>0&&no.length>0&&checkin.length>0&&checkout.length>0&&payment1.length>0)
-      console.log(a)
-      if(!a){
-        alert("Missing Field")
-        
-        return;
-        
-      }
 
       var myHeaders = new Headers();
       myHeaders.append("Content-Type", "application/json");
@@ -334,7 +454,7 @@
           console.log( response.text())
           if(response){
             alert("success")
-            window.location.href = "http://localhost:5500/HotelBooking/MyBooking.html";
+            window.location.href = "http://localhost:5500/MyBooking.html";
             
           }
         })

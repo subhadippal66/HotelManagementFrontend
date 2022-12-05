@@ -152,6 +152,18 @@
 
     <script>
 
+      let room = {"1" :'Standard',
+                            "2" :'Deluxe',
+                            "3" : 'Super Deluxe',
+                            "4" :'Presidential',
+      }
+      let payment = {
+                            '1':'Cash on Check-in',
+                            '2':'UPI',
+                            '3':'Debit Card',
+                            '4':'Credit Card/EMI'
+      }
+
       if(window.localStorage.getItem("Email")==null){
         $("#allbooking").html("<p>You have to log in to see your bookings</p>")
         $('#emaildisplay').html(`You have to log in to see your bookings.`)
@@ -167,6 +179,7 @@
                 //console.log(data)
                 if(data){
                     let bookhtml = ``;
+                    date = data.reverse();
                     data.forEach((d,i)=>{
                         console.log(d)
                         bookhtml+=`
@@ -175,13 +188,13 @@
                                 <img src="image/oo1.jpg"  alt="">
                                 </div>
                                 <div class="right">
-                                <h4>Deluxe Room</h4>
+                                <h4>${room[d.roomType]} Room in ${d.location}</h4>
                                 
                                 <p> <b>${d.checkin}</b> to <b>${d.checkout}</b> </p>
                                 <p> No Of Rooms -> ${d.noOfRooms} </p>
                                 <p> Adults -> ${d.adults} </p>
                                 <p> Children -> ${d.children} </p>
-                                <h5>Payment method - Cash</h5>
+                                <h5>${payment[d.paymentMode]} - (${d.status1}/-)</h5>
                                 
                                   ${(d.status==0)?'<button class="flex1" onClick="confirm(`Are you sure ?`) && cancelBooking('+d.id+','+d.userHash+')"><span>Cancel Booking</span><i class="fas fa-arrow-circle-right"></i></button>':"<p style='color:red;'>Cancelled</p>"}
                                 
@@ -211,7 +224,7 @@
           .then(result => {
             if(result){
               alert("Cancelled")
-              window.location.href = "http://localhost:5500/HotelBooking/MyBooking.html";
+              window.location.href = "http://localhost:5500/MyBooking.html";
               
             }
           })
